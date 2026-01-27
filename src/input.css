@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Engagement&display=swap');
+@import "tailwindcss";
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+html,body {
+  overflow-x: hidden;
+}
+
+.logo {
+  font-family: "Engagement", cursive;
+  font-weight: 400;
+}
+
+.btn-color {
+  background-color: #181717;
+}
+ 
+.btn-color:hover {
+  background-color: #333232;
+}
+
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;     
+}
+
+@media (max-width: 440px) {
+  .promo-section img{
+    height: 200px;
+  }
+
+  .product-descript {
+    top: 20px;
+    h1 {
+      font-size: 30px;
+    }
+
+    button {
+      font-size: 12px;
+      width: 120px;
+    }
+  }
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #9ca3af;
+  border-radius: 9999px;
+}

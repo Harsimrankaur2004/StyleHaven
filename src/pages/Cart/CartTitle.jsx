@@ -1,6 +1,6 @@
 const CartTitle = () => {
   return (
-    <div className='ml-10 sm:block hidden text-3xl'>
+    <div className={`ml-10 text-3xl`}>
       Cart: (3 items)
     </div>
   )

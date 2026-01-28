@@ -2,7 +2,7 @@ import { AiFillStar } from "react-icons/ai";
 
 const data = [
   {
-    id: "1",
+    id: "p1",
     img: "https://i.pinimg.com/736x/9f/65/26/9f6526733d0fa8cd76083a71bcec2871.jpg",
     title: "Asymmetrical Ruched Batwing Long-Sleeve Top",
     star: <AiFillStar className="rating-star" />,
@@ -15,6 +15,7 @@ const data = [
   },
 
   {
+    id: "p2",
     img: "https://i.pinimg.com/736x/0b/85/ce/0b85cef8b5e0f7dff5f29839a3e68fa3.jpg",
     title: "Off Shoulder Asymmetrical Tie Mesh Top",
     star: <AiFillStar className="rating-star" />,
@@ -26,6 +27,7 @@ const data = [
     gender: "female",
   },
   {
+    id: "p3",
     img: "https://i.pinimg.com/1200x/ac/3e/7f/ac3e7f92dcef979188c1292a05b406d8.jpg",
     title: "Summer Stand Collar Mid Sleeve T Shirt",
     star: <AiFillStar className="rating-star" />,
@@ -37,6 +39,7 @@ const data = [
     gender: "male",
   },
   {
+    id: "p4",
     img: "https://i.pinimg.com/736x/76/92/39/769239079e444cbfa024b52ee675a264.jpg",
     title: "Lantern Sleeve Blouse",
     star: <AiFillStar className="rating-star" />,
@@ -48,6 +51,7 @@ const data = [
     gender: "female",
   },
   {
+    id: "p5",
     img: "https://i.pinimg.com/1200x/f7/7a/fe/f77afe39648487d6dbc3062fa71dd8e1.jpg",
     title: "Men's Jacket Over Shirt",
     star: <AiFillStar className="rating-star" />,
@@ -59,6 +63,7 @@ const data = [
     gender: "male",
   },
   {
+    id: "p6",
     img: "https://i.pinimg.com/736x/67/63/21/676321dbcd4a08b139cc64bc37e4d4d9.jpg",
     title: "Base Rose Flower Puff Sleeve Chest Ruched Waist Cinched Dress",
     star: <AiFillStar className="rating-star" />,
@@ -70,6 +75,7 @@ const data = [
     gender: "female",
   },
   {
+    id: "p7",
     img: "https://i.pinimg.com/1200x/5e/1a/dc/5e1adccd32a3fe3fdb2ec70986de89af.jpg",
     title: "Crimson Nocturne Velvet Gown",
     star: <AiFillStar className="rating-star" />,
@@ -82,6 +88,7 @@ const data = [
   },
 
   {
+    id: "p8",
     img: "https://i.pinimg.com/736x/4f/bf/cc/4fbfcc5e60f988ac8682e57e619b9540.jpg",
     title: "Midnight Sheer-Sleeve Bodycon Dress",
     star: <AiFillStar className="rating-star" />,
@@ -94,6 +101,7 @@ const data = [
   },
 
   {
+    id: "p9",
     img: "https://i.pinimg.com/1200x/ea/2b/2c/ea2b2cf6939951254d18ded15c739b58.jpg",
     title: "Sage Ruched Slip Midi Dress",
     star: <AiFillStar className="rating-star" />,
@@ -106,6 +114,7 @@ const data = [
   },
 
   {
+    id: "p10",
     img: "https://m.media-amazon.com/images/I/61-cBsLhJHL._AC_UY695_.jpg",
     title: "Nike Men's Sneaker",
     star: <AiFillStar className="rating-star" />,
@@ -119,6 +128,7 @@ const data = [
   },
 
   {
+    id: "p11",
     img: "https://m.media-amazon.com/images/I/81xXDjojYKS._AC_UX575_.jpg",
     title: "PUMA BLACK-OCE",
     star: <AiFillStar className="rating-star" />,
@@ -131,6 +141,7 @@ const data = [
     gender: "male",
   },
   {
+    id: "p12",
     img: "https://m.media-amazon.com/images/I/71E75yRwCDL._AC_UY575_.jpg",
     title: "Pacer Future Sneaker",
     star: <AiFillStar className="rating-star" />,
@@ -143,6 +154,7 @@ const data = [
     gender: "male",
   },
   {
+    id: "p13",
     img: "https://m.media-amazon.com/images/I/71jeoX0rMBL._AC_UX575_.jpg",
     title: "Unisex-Adult Super",
     star: <AiFillStar className="rating-star" />,
@@ -155,6 +167,7 @@ const data = [
     gender: "male",
   },
   {
+    id: "p14",
     img: "https://i.pinimg.com/736x/7b/c2/5d/7bc25dc4eaa7fc779f57284155520c93.jpg",
     title: "Men's Sweaters | Abercrombie & Fitch",
     star: <AiFillStar className="rating-star" />,
@@ -167,6 +180,7 @@ const data = [
   },
 
   {
+    id: "p15",
     img: "https://m.media-amazon.com/images/I/719gdz8lsTS._AC_UX575_.jpg",
     title: "Rainbow Chex Skate",
     star: <AiFillStar className="rating-star" />,
@@ -179,6 +193,7 @@ const data = [
     gender: "female",
   },
   {
+    id: "p16",
     img: "https://m.media-amazon.com/images/I/71gpFHJlnoL._AC_UX575_.jpg",
     title: "Low-Top Trainers",
     star: <AiFillStar className="rating-star" />,
@@ -191,6 +206,7 @@ const data = [
     gender: "female",
   },
   {
+    id: "p17",
     img: "https://m.media-amazon.com/images/I/71pf7VFs9CL._AC_UX575_.jpg",
     title: "Vans Unisex Low-Top",
     star: <AiFillStar className="rating-star" />,
@@ -203,6 +219,7 @@ const data = [
     gender: "female",
   },
   {
+    id: "p18",
     img: "https://m.media-amazon.com/images/I/61N4GyWcHPL._AC_UY575_.jpg",
     title: "Classic Bandana Sneakers",
     star: <AiFillStar className="rating-star" />,
@@ -215,6 +232,7 @@ const data = [
     gender: "female",
   },
   {
+    id: "p19",
     img: "https://m.media-amazon.com/images/I/61bncQ44yML._AC_UX695_.jpg",
     title: "Chunky High Heel",
     star: <AiFillStar className="rating-star" />,
@@ -227,6 +245,7 @@ const data = [
     gender: "female",
   },
   {
+    id: "p20",
     img: "https://m.media-amazon.com/images/I/71czu7WgGuL._AC_UY695_.jpg",
     title: "Slip On Stiletto High Heel",
     star: <AiFillStar className="rating-star" />,
@@ -239,6 +258,7 @@ const data = [
     gender: "female",
   },
   {
+    id: "p21",
     img: "https://m.media-amazon.com/images/I/61men05KRxL._AC_UY625_.jpg",
     title: "DREAM PAIRS Court Shoes",
     star: <AiFillStar className="rating-star" />,
@@ -251,6 +271,7 @@ const data = [
     gender: "female",
   },
   {
+    id: "p22",
     img: "https://i.pinimg.com/1200x/84/b3/55/84b355589fae3555f2d90fb985229c4a.jpg",
     title: "Men's Sideline-Style Sweater Polo",
     star: <AiFillStar className="rating-star" />,
@@ -263,6 +284,7 @@ const data = [
   },
 
   {
+    id: "p23",
     img: "https://m.media-amazon.com/images/I/51PGWTXgf-L._AC_UY625_.jpg",
     title: "Low Mid Block footwear",
     star: <AiFillStar className="rating-star" />,
@@ -275,6 +297,7 @@ const data = [
     gender: "female",
   },
   {
+    id: "p24",
     img: "https://i.pinimg.com/736x/b6/79/da/b679da5ab454013b01715bafb370023a.jpg",
     title: "Full Zip Up Laydown Collar Jacket",
     star: <AiFillStar className="rating-star" />,
@@ -286,6 +309,7 @@ const data = [
     gender: "male",
   },
   {
+    id: "p25",
     img: "https://i.pinimg.com/1200x/ec/0b/42/ec0b42cdd56036320599b04460557f9d.jpg",
     title: "Fleece Jacket",
     star: <AiFillStar className="rating-star" />,
@@ -297,6 +321,7 @@ const data = [
     gender: "male",
   },
   {
+    id: "p26",
     img: "https://m.media-amazon.com/images/I/71yhoZP0l6L._AC_UY695_.jpg",
     title: "Wedding Prom Bridal",
     star: <AiFillStar className="rating-star" />,
@@ -309,6 +334,7 @@ const data = [
     gender: "female",
   },
   {
+    id: "p27",
     img: "https://i.pinimg.com/1200x/7e/31/26/7e3126aa3f4bdfc77b26b5ed2d833f85.jpg",
     title: "Slim Plazzo Pocket High Waist Pants",
     star: <AiFillStar className="rating-star" />,
@@ -320,6 +346,7 @@ const data = [
     gender: "female",
   },
   {
+    id: "p28",
     img: "https://i.pinimg.com/1200x/19/c6/b7/19c6b7348b488835566f347498df5317.jpg",
     title: "Anti-skinny Jeans",
     star: <AiFillStar className="rating-star" />,
@@ -331,6 +358,7 @@ const data = [
     gender: "female",
   },
   {
+    id: "p29",
     img: "https://i.pinimg.com/1200x/51/ea/43/51ea4361a0231cd0d2237fe3471a3d72.jpg",
     title: "Pleeted Wool-Blend Creep Wide-leg Pants",
     star: <AiFillStar className="rating-star" />,
@@ -343,6 +371,7 @@ const data = [
   },
   
   {
+    id: "p30",
     img: "https://i.pinimg.com/1200x/79/8b/a2/798ba21b7915c8b780285ee0890df9db.jpg",
     title: "Simple Occassional Shorts",
     star: <AiFillStar className="rating-star" />,
@@ -354,6 +383,7 @@ const data = [
     gender: "male",
   },
   {
+    id: "p31",
     img: "https://i.pinimg.com/736x/98/23/d4/9823d48031d99a268da3e1ddb357ff65.jpg",
     title: "Summer Cargo Shorts",
     star: <AiFillStar className="rating-star" />,
@@ -365,6 +395,7 @@ const data = [
     gender: "male",
   },
   {
+    id: "p32",
     img: "https://i.pinimg.com/736x/ad/c4/7f/adc47f2715d959d3fe6d4722a76c642e.jpg",
     title: "Flare Sleeve Woman blouse",
     star: <AiFillStar className="rating-star" />,
@@ -376,6 +407,7 @@ const data = [
     gender: "female",
   },
   {
+    id: "p33",
     img: "https://i.pinimg.com/1200x/dc/e8/ca/dce8ca77d8c7617e691ce1ddaa0a8773.jpg",
     title: "Leilani Washed Baggy Jeans",
     star: <AiFillStar className="rating-star" />,
@@ -387,6 +419,7 @@ const data = [
     gender: "male",
   },
   {
+    id: "p34",
     img: "https://i.pinimg.com/1200x/59/9a/2e/599a2e0330633cf95c461831d45165de.jpg",
     title: "Men's Tipped Johnny Collar Sweater Polo",
     star: <AiFillStar className="rating-star" />,

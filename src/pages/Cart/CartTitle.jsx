@@ -1,7 +1,7 @@
 const CartTitle = () => {
   return (
     <div className={`ml-10 text-3xl`}>
-      Cart: (3 items)
+      My Cart: (2 items)
     </div>
   )
 }

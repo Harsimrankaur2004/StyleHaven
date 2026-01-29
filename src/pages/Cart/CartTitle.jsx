@@ -1,9 +1,8 @@
-const CartTitle = () => {
-  return (
-    <div className={`ml-10 text-3xl`}>
-      My Cart: (2 items)
-    </div>
-  )
-}
+import { useCart } from "./CartContext";
 
-export default CartTitle
+const CartTitle = () => {
+  const { cartQuantity } = useCart();
+  return <div className={`ml-10 text-3xl`}>My Cart: ({cartQuantity} items)</div>;
+};
+
+export default CartTitle;

@@ -1,6 +1,6 @@
 import { CiSearch } from "react-icons/ci";
 import { useEffect, useState } from "react";
-import CartQuantity from "./CartQuantity";
+import CartCount from "./CartCount";
 import { useNavigate } from "react-router-dom";
 
 const SearchBar = ({ mobileSearchOpen, setMobileSearchOpen }) => {
@@ -76,7 +76,7 @@ const SearchBar = ({ mobileSearchOpen, setMobileSearchOpen }) => {
           <CiSearch fontSize={25} className="cursor-pointer text-gray-6" />
         </button>
       </div>
-      <CartQuantity />
+      <CartCount />
     </div>
   );
 };

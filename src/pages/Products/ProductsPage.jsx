@@ -5,7 +5,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import Header from "../../components/Header";
 import ProductsContent from "./ProductsContent";
 import SideBar from "./Sidebar/SideBar";
-import Card from "../../components/Card";
+import Card from "./Card";
 
 // ----- Data -----
 import productsData from "../../db/data";
@@ -56,6 +56,7 @@ const ProductsPage = () => {
       ({ id, img, title, star, reviews, prevPrice, newPrice }) => (
         <Card
           key={id}
+          id={id}
           img={img}
           title={title}
           star={star}

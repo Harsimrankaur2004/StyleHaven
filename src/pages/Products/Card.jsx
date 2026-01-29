@@ -1,6 +1,11 @@
-const Card = ({ img, title, star, reviews, prevPrice, newPrice }) => {
+import { useCart } from "../Cart/CartContext";
+
+const Card = ({ id, img, title, star, reviews, prevPrice, newPrice }) => {
+  const { addToCart } = useCart();
+  
+
   return (
-    <div className="flex-1 basis-35 max-[400px]:w-30 md:basis-40 border border-gray-300 p-4 rounded sm:grow-0 items-center max-w-50 sm:max-w-60 flex flex-col">
+    <div id={id} className="flex-1 basis-35 max-[400px]:w-30 md:basis-40 border border-gray-300 p-4 rounded sm:grow-0 items-center max-w-50 sm:max-w-60 flex flex-col">
       <div className="max-[400x]:w-25 max-[400px]:h-35 w-35 h-30 sm:max-w-45 rounded-2xl">
         <img
           className="w-full h-full object-contain"
@@ -24,7 +29,7 @@ const Card = ({ img, title, star, reviews, prevPrice, newPrice }) => {
         </del>
         <span className="font-bold sm:font-bold ml-2">${newPrice}</span>
       </div>
-      <button className="bg-[#1f1f1f] text-white px-8 rounded-4xl py-2 mt-2 cursor-pointer">
+      <button onClick={() => addToCart({img, title, newPrice, id })} className="bg-[#1f1f1f] text-white px-8 rounded-4xl py-2 mt-2 cursor-pointer">
         Buy
       </button>
     </div>

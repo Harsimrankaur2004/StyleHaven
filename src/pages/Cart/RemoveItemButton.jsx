@@ -1,6 +1,10 @@
-const RemoveItemButton = () => {
+import { useCart } from "./CartContext"
+
+const RemoveItemButton = ({id}) => {
+  const { removeItem } = useCart();
   return (
-    <button className='hover:text-gray-600 lg:text-xl cursor-pointer text-red-600'>
+
+    <button onClick={() => {removeItem(id)}} className='hover:text-gray-600 lg:text-xl cursor-pointer text-red-600'>
       Remove
     </button>
   )

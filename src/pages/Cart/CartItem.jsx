@@ -1,24 +1,39 @@
+import { useCart } from "./CartContext";
 import QuantitySelector from "./QuantitySelector";
 import RemoveItemButton from "./RemoveItemButton";
+import { useEffect } from "react";
 
 const CartItem = () => {
+
+const { cart } = useCart();
+
+useEffect(() => {
+  console.log("CART UPDATED:", cart);
+}, [cart]);
   return (
-    <div className="flex md:p-4 p-2 sm:p-3">
-      <div className="w-45 h-42 border border-gray-500 p-1 rounded">
-        <img
-          className="w-full h-full object-contain"
-          src="https://i.pinimg.com/1200x/59/9a/2e/599a2e0330633cf95c461831d45165de.jpg"
-          alt=""
-        />
-      </div>
-      <div className="ml-3">
-        <div className="font-bold min-[850px]:text-xl ">Men's Tipped Johnny Collar Sweater Polo</div>
-        <div className="mb-2 lg:mb-5">Color: Green</div>
-        <div className="xl:hidden">$200</div>
-        <QuantitySelector />
-        <RemoveItemButton />
-      </div>
-      <div className="flex-1 text-end font-bold text-xl hidden xl:block">$200</div>
+    <div className="md:p-4 p-2 sm:p-3">
+      {cart.map(item => (
+      
+        <div key={item.id} className="flex mb-3">
+          <div className="w-45 h-42 border border-gray-500 p-1 rounded">
+            <img
+              className="w-full h-full object-contain"
+              src={item.img}
+              alt=""
+            />
+          </div>
+          <div className="ml-3">
+            <div className="font-bold min-[850px]:text-xl ">{item.title}</div>
+            <div className="mb-2 lg:mb-5">Color: Green</div>
+            <div className="xl:hidden">{item.newPrice}</div>
+            <QuantitySelector id={item.id} />
+            <RemoveItemButton id={item.id} />
+          </div>
+          <div className="flex-1 text-end font-bold text-xl hidden xl:block">{item.newPrice}</div>
+
+        </div>
+
+      ))}
     </div>
   );
 };

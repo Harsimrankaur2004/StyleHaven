@@ -4,8 +4,10 @@ const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const [ cartEmpty, setCartEmpty] = useState(true)
 
   const addToCart = (product) => {
+    setCartEmpty(false)
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === product.id);
 
@@ -47,6 +49,9 @@ export const CartProvider = ({ children }) => {
 
   const removeItem = (id) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+    if(cart.length <= 1) {
+      setCartEmpty(true)
+    }
   };
 
   const totalPrice = () => {
@@ -67,6 +72,7 @@ export const CartProvider = ({ children }) => {
         decreaseQty,
         removeItem,
         totalPrice,
+        cartEmpty
       }}
     >
       {children}

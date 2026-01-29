@@ -21,7 +21,7 @@ useEffect(() => {
             <img
               className="w-full h-full object-contain"
               src={item.img}
-              alt=""
+              alt="product image"
             />
           </div>
           <div className="ml-3">

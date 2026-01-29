@@ -53,7 +53,7 @@ const ProductsPage = () => {
     }
 
     return filteredProducts.map(
-      ({ id, img, title, star, reviews, prevPrice, newPrice }) => (
+      ({ id, img, title, star, reviews, prevPrice, newPrice, color }) => (
         <Card
           key={id}
           id={id}
@@ -63,6 +63,7 @@ const ProductsPage = () => {
           reviews={reviews}
           prevPrice={prevPrice}
           newPrice={newPrice}
+          color={color}
         />
       ),
     );

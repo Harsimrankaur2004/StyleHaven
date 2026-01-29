@@ -1,8 +1,20 @@
+import { useRef, useState } from "react";
 import { useCart } from "../Cart/CartContext";
 
-const Card = ({ id, img, title, star, reviews, prevPrice, newPrice }) => {
+const Card = ({ id, img, title, star, reviews, prevPrice, newPrice, color }) => {
+  const [ added, setAdded ] = useState(false)
   const { addToCart } = useCart();
-  
+  const timeoutRef = useRef(null);;
+
+  const handleClick = () => {
+    clearTimeout(timeoutRef.current);
+
+    addToCart({img, title, newPrice, id, color });
+    setAdded(true)
+    timeoutRef.current = setTimeout(() => {
+      setAdded(false)
+    }, 2000);
+  }
 
   return (
     <div id={id} className="flex-1 basis-35 max-[400px]:w-30 md:basis-40 border border-gray-300 p-4 rounded sm:grow-0 items-center max-w-50 sm:max-w-60 flex flex-col">
@@ -29,8 +41,8 @@ const Card = ({ id, img, title, star, reviews, prevPrice, newPrice }) => {
         </del>
         <span className="font-bold sm:font-bold ml-2">${newPrice}</span>
       </div>
-      <button onClick={() => addToCart({img, title, newPrice, id })} className="bg-[#1f1f1f] text-white px-8 rounded-4xl py-2 mt-2 cursor-pointer">
-        Buy
+      <button onClick={handleClick} className="bg-[#1f1f1f] text-white px-8 rounded-4xl py-2 mt-2 cursor-pointer hover:opacity-55 active:opacity-40">
+       {added ? "Added" : "Add" }
       </button>
     </div>
   );

@@ -5,10 +5,12 @@ import { useEffect } from "react";
 
 const CartItem = () => {
 
-const { cart } = useCart();
+const { cart, totalPrice } = useCart();
 
 useEffect(() => {
   console.log("CART UPDATED:", cart);
+  console.log("CART TOTAL PRICE:", totalPrice());
+  
 }, [cart]);
   return (
     <div className="md:p-4 p-2 sm:p-3">
@@ -24,8 +26,8 @@ useEffect(() => {
           </div>
           <div className="ml-3">
             <div className="font-bold min-[850px]:text-xl ">{item.title}</div>
-            <div className="mb-2 lg:mb-5">Color: Green</div>
-            <div className="xl:hidden">{item.newPrice}</div>
+            <div className="mb-2 lg:mb-5">Color: {item.color}</div>
+            <div className="xl:hidden">${item.newPrice}</div>
             <QuantitySelector id={item.id} />
             <RemoveItemButton id={item.id} />
           </div>

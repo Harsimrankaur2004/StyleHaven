@@ -1,12 +1,7 @@
-import { useState } from "react";
 import { useCart } from "./CartContext";
 
 const OrderSumary = () => {
-  const [ orderPlace, setOrderPlaced ] = useState(false)
-  const { totalPrice } = useCart();
-  const handleClick = () => {
-    setOrderPlaced(true)
-  }
+  const { totalPrice, orderPlace, orderPlaceButton, orderBtnHidden } = useCart();
 
   return (
     <div className="px-4 py-3 border border-t h-65 w-80 rounded border-gray-500 text-xl">
@@ -26,7 +21,12 @@ const OrderSumary = () => {
         <span>${totalPrice()}</span>
       </div>
       <div className="text-center">
-        <button onClick={handleClick} className="bg-[#1e1e1e] text-white py-3 text-base px-15 rounded-2xl mt-3 cursor-pointer">{orderPlace ? "Order Placed" : "Place Order"}</button>
+        <button
+          onClick={() => orderPlaceButton()}
+          className={`bg-[#1e1e1e] text-white py-3 text-base px-15 rounded-2xl mt-3 hover:opacity-65 active:opacity-40 cursor-pointer ${orderPlace ? "pointer-events-none" : ""} ${orderBtnHidden ? "hidden" : ""}`}
+        >
+          {orderPlace ? "Order Placed" : "Place Order"}
+        </button>
       </div>
     </div>
   );

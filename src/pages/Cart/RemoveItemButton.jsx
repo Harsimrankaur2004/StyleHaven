@@ -1,13 +1,19 @@
-import { useCart } from "./CartContext"
+import { useCart } from "./CartContext";
 
-const RemoveItemButton = ({id}) => {
+const RemoveItemButton = ({ id }) => {
   const { removeItem } = useCart();
-  return (
+  const { hideRemoveBtn } = useCart();
 
-    <button onClick={() => {removeItem(id)}} className='hover:text-gray-600 lg:text-xl cursor-pointer text-red-600'>
+  return (
+    <button
+      onClick={() => {
+        removeItem(id);
+      }}
+      className={`${hideRemoveBtn ? "hidden" : "block"} hover:text-gray-600 lg:text-xl cursor-pointer text-red-600`}
+    >
       Remove
     </button>
-  )
-}
+  );
+};
 
-export default RemoveItemButton
+export default RemoveItemButton;

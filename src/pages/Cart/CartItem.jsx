@@ -1,21 +1,13 @@
 import { useCart } from "./CartContext";
 import QuantitySelector from "./QuantitySelector";
 import RemoveItemButton from "./RemoveItemButton";
-import { useEffect } from "react";
 
 const CartItem = () => {
+  const { cart } = useCart();
 
-const { cart, totalPrice } = useCart();
-
-useEffect(() => {
-  console.log("CART UPDATED:", cart);
-  console.log("CART TOTAL PRICE:", totalPrice());
-  
-}, [cart]);
   return (
     <div className="md:p-4 p-2 sm:p-3">
-      {cart.map(item => (
-      
+      {cart.map((item) => (
         <div key={item.id} className="flex mb-3">
           <div className="w-45 h-42 border border-gray-500 p-1 rounded">
             <img
@@ -31,10 +23,10 @@ useEffect(() => {
             <QuantitySelector id={item.id} />
             <RemoveItemButton id={item.id} />
           </div>
-          <div className="flex-1 text-end font-bold text-xl hidden xl:block">{item.newPrice}</div>
-
+          <div className="flex-1 text-end font-bold text-xl hidden xl:block">
+            {item.newPrice}
+          </div>
         </div>
-
       ))}
     </div>
   );

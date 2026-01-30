@@ -72,7 +72,9 @@ export const CartProvider = ({ children }) => {
     if (cartEmpty) return;
     setOrderPlace(true);
     setHideRemoveBtn(true);
-    setCancelOrderBtnHidden(false);
+    setTimeout(() => {
+      setCancelOrderBtnHidden(false)
+    }, 2000)
   };
 
   const cancelOrderBtn = () => {
@@ -81,6 +83,7 @@ export const CartProvider = ({ children }) => {
     setCartEmpty(true);
     setCancelOrderBtnHidden(true);
     setOrderBtnHidden(true);
+    setHideRemoveBtn(false)
   };
   return (
     <CartContext.Provider

@@ -6,14 +6,16 @@ const CartCount = () => {
   const { cartQuantity } = useCart();
   const navigate = useNavigate();
   return (
-    <div className="relative flex items-center">
-      <nav
-        className="cursor-pointer  hover:text-gray-500"
-        onClick={() => navigate("/cart")}
-      >
+    <div
+      onClick={() => navigate("/cart")}
+      className="relative flex items-center cursor-pointer "
+    >
+      <nav className="hover:text-gray-500">
         <FaCartShopping fontSize={30} />
       </nav>
-      <div className="absolute h-5 w-5 flex justify-center items-center top-2 -right-1 rounded-full text-white bg-red-600">{cartQuantity}</div>
+      <div className="absolute h-5 w-5 flex justify-center items-center top-2 -right-1 rounded-full text-white bg-red-600">
+        {cartQuantity}
+      </div>
     </div>
   );
 };

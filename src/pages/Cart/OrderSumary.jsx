@@ -1,10 +1,16 @@
+import CancleOrderButton from "./CancelOrderButton";
 import { useCart } from "./CartContext";
 
 const OrderSumary = () => {
-  const { totalPrice, orderPlace, orderPlaceButton, orderBtnHidden } = useCart();
+  const { totalPrice, orderPlace, orderPlaceButton, orderBtnHidden, cancelOrderBtnHidden } = useCart();
+
+  const handleClick = () => {
+    orderPlaceButton();
+    
+  }
 
   return (
-    <div className="px-4 py-3 border border-t h-65 w-80 rounded border-gray-500 text-xl">
+    <div className="px-4 py-3 border border-t h-65 w-80 max-[340px]:w-75 rounded border-gray-500 text-xl">
       <h1 className="text-3xl font-bold pb-3 my-3">Order Summary</h1>
       <div className="flex justify-between">
         <span>Sub-total</span>
@@ -21,12 +27,15 @@ const OrderSumary = () => {
         <span>${totalPrice()}</span>
       </div>
       <div className="text-center">
-        <button
-          onClick={() => orderPlaceButton()}
+        {
+          cancelOrderBtnHidden ?  <button
+          onClick={handleClick}
           className={`bg-[#1e1e1e] text-white py-3 text-base px-15 rounded-2xl mt-3 hover:opacity-65 active:opacity-40 cursor-pointer ${orderPlace ? "pointer-events-none" : ""} ${orderBtnHidden ? "hidden" : ""}`}
         >
           {orderPlace ? "Order Placed" : "Place Order"}
-        </button>
+        </button> : <CancleOrderButton />
+        }
+       
       </div>
     </div>
   );

@@ -2,11 +2,10 @@ import CancleOrderButton from "./CancelOrderButton";
 import { useCart } from "./CartContext";
 
 const OrderSumary = () => {
-  const { totalPrice, orderPlace, orderPlaceButton, orderBtnHidden, cancelOrderBtnHidden } = useCart();
+  const { totalPrice, orderPlace, orderPlaceButton, orderBtnHidden, ShowCancelOrderBtn } = useCart();
 
   const handleClick = () => {
     orderPlaceButton();
-    
   }
 
   return (
@@ -28,12 +27,12 @@ const OrderSumary = () => {
       </div>
       <div className="text-center">
         {
-          cancelOrderBtnHidden ?  <button
-          onClick={handleClick}
+          ShowCancelOrderBtn ? <CancleOrderButton /> :  <button
+          onClick={handleClick} 
           className={`bg-[#1e1e1e] text-white py-3 text-base px-15 rounded-2xl mt-3 hover:opacity-65 active:opacity-40 cursor-pointer ${orderPlace ? "pointer-events-none" : ""} ${orderBtnHidden ? "hidden" : ""}`}
         >
-          {orderPlace ? "Order Placed" : "Place Order"}
-        </button> : <CancleOrderButton />
+         Order Placed
+        </button> 
         }
        
       </div>

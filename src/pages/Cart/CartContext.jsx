@@ -1,18 +1,38 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
-  const [cartEmpty, setCartEmpty] = useState(true);
-  const [orderPlace, setOrderPlace] = useState(false);
-  const [orderBtnHidden, setOrderBtnHidden] = useState(true);
-  const [hideRemoveBtn, setHideRemoveBtn] = useState(false);
-  const [cancelOrderBtnHidden, setCancelOrderBtnHidden] = useState(true);
+  const [cart, setCart] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("cart")) || [];
+    } catch {
+      return [];
+    }
+  });
+
+  const [orderPlace, setOrderPlace] = useState(() => {
+    return JSON.parse(localStorage.getItem("orderPlace")) || false;
+  });
+  const ShowCancelOrderBtn = orderPlace;
+  const cartEmpty = cart.length === 0;
+  const hideRemoveBtn = orderPlace;
+  const orderBtnHidden = cartEmpty || orderPlace;
+
+  useEffect(() => {
+    if (cartEmpty) {
+      localStorage.removeItem("cart");
+    } else {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }, [cart]);
+
+  useEffect(() => {
+    localStorage.setItem("orderPlace", JSON.stringify(orderPlace));
+  }, [orderPlace]);
 
   const addToCart = (product) => {
-    setCartEmpty(false);
-    setOrderBtnHidden(false);
+    if (orderPlace) return;
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === product.id);
 
@@ -56,9 +76,6 @@ export const CartProvider = ({ children }) => {
 
   const removeItem = (id) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== id));
-    if (cart.length <= 1) {
-      setCartEmpty(true);
-    }
   };
 
   const totalPrice = () => {
@@ -71,20 +88,13 @@ export const CartProvider = ({ children }) => {
   const orderPlaceButton = () => {
     if (cartEmpty) return;
     setOrderPlace(true);
-    setHideRemoveBtn(true);
-    setTimeout(() => {
-      setCancelOrderBtnHidden(false)
-    }, 2000)
   };
 
   const cancelOrderBtn = () => {
     setOrderPlace(false);
     setCart([]);
-    setCartEmpty(true);
-    setCancelOrderBtnHidden(true);
-    setOrderBtnHidden(true);
-    setHideRemoveBtn(false)
   };
+
   return (
     <CartContext.Provider
       value={{
@@ -101,7 +111,7 @@ export const CartProvider = ({ children }) => {
         orderPlaceButton,
         orderPlace,
         orderBtnHidden,
-        cancelOrderBtnHidden,
+        ShowCancelOrderBtn,
         cancelOrderBtn,
       }}
     >

@@ -3,10 +3,11 @@ import { useCart } from "../Cart/CartContext";
 
 const Card = ({ id, img, title, star, reviews, prevPrice, newPrice, color }) => {
   const [ added, setAdded ] = useState(false)
-  const { addToCart } = useCart();
+  const { addToCart, orderPlace } = useCart();
   const timeoutRef = useRef(null);;
 
   const handleClick = () => {
+    if (orderPlace) return;
     clearTimeout(timeoutRef.current);
 
     addToCart({img, title, newPrice, id, color });

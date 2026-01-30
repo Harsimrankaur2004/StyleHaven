@@ -1,6 +1,6 @@
 import { FaCartShopping } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../pages/Cart/CartContext";
+import { useCart } from "../context/CartContext";
 
 const CartCount = () => {
   const { cartQuantity } = useCart();

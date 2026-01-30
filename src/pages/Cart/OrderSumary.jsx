@@ -1,12 +1,19 @@
 import CancleOrderButton from "./CancelOrderButton";
-import { useCart } from "./CartContext";
+import { useCart } from "../../context/CartContext";
 
 const OrderSumary = () => {
-  const { totalPrice, orderPlace, orderPlaceButton, orderBtnHidden, ShowCancelOrderBtn } = useCart();
+  const {
+    totalPrice,
+    orderPlace,
+    orderPlaceButton,
+    orderBtnHidden,
+    showCancelOrderBtn,
+  } = useCart();
 
   const handleClick = () => {
     orderPlaceButton();
-  }
+    alert("Order is placed.");
+  };
 
   return (
     <div className="px-4 py-3 border border-t h-65 w-80 max-[340px]:w-75 rounded border-gray-500 text-xl">
@@ -26,15 +33,16 @@ const OrderSumary = () => {
         <span>${totalPrice()}</span>
       </div>
       <div className="text-center">
-        {
-          ShowCancelOrderBtn ? <CancleOrderButton /> :  <button
-          onClick={handleClick} 
-          className={`bg-[#1e1e1e] text-white py-3 text-base px-15 rounded-2xl mt-3 hover:opacity-65 active:opacity-40 cursor-pointer ${orderPlace ? "pointer-events-none" : ""} ${orderBtnHidden ? "hidden" : ""}`}
-        >
-         Order Placed
-        </button> 
-        }
-       
+        {showCancelOrderBtn ? (
+          <CancleOrderButton />
+        ) : (
+          <button
+            onClick={handleClick}
+            className={`bg-[#1e1e1e] text-white py-3 text-base px-15 rounded-2xl mt-3 hover:opacity-65 active:opacity-40 cursor-pointer ${orderPlace ? "pointer-events-none" : ""} ${orderBtnHidden ? "hidden" : ""}`}
+          >
+            Order Placed
+          </button>
+        )}
       </div>
     </div>
   );

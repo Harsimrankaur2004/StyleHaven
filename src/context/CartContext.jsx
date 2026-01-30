@@ -14,22 +14,21 @@ export const CartProvider = ({ children }) => {
   const [orderPlace, setOrderPlace] = useState(() => {
     return JSON.parse(localStorage.getItem("orderPlace")) || false;
   });
-  const ShowCancelOrderBtn = orderPlace;
+  const showCancelOrderBtn = orderPlace;
   const cartEmpty = cart.length === 0;
   const hideRemoveBtn = orderPlace;
   const orderBtnHidden = cartEmpty || orderPlace;
 
   useEffect(() => {
-    if (cartEmpty) {
-      localStorage.removeItem("cart");
-    } else {
-      localStorage.setItem("cart", JSON.stringify(cart));
-    }
-  }, [cart]);
+  if (cart.length === 0) {
+    localStorage.removeItem("cart");
+  } else {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
 
-  useEffect(() => {
-    localStorage.setItem("orderPlace", JSON.stringify(orderPlace));
-  }, [orderPlace]);
+  localStorage.setItem("orderPlace", JSON.stringify(orderPlace));
+}, [cart, orderPlace]);
+
 
   const addToCart = (product) => {
     if (orderPlace) return;
@@ -111,7 +110,7 @@ export const CartProvider = ({ children }) => {
         orderPlaceButton,
         orderPlace,
         orderBtnHidden,
-        ShowCancelOrderBtn,
+        showCancelOrderBtn,
         cancelOrderBtn,
       }}
     >

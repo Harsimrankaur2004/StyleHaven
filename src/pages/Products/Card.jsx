@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { useCart } from "../Cart/CartContext";
+import { useCart } from "../../context/CartContext";
 
 const Card = ({ id, img, title, star, reviews, prevPrice, newPrice, color }) => {
   const [ added, setAdded ] = useState(false)

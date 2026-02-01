@@ -4,7 +4,7 @@ import bagCart from "../../assets/cart-bag.png"
 const EmptyCart = () => {
   const navigate = useNavigate()
   return (
-    <div className="flex flex-col justify-center items-center border h-screen">
+    <div className="flex flex-col justify-center items-center h-screen">
       <div className="w-50 h-50">
 
       <img src={bagCart} alt="" />

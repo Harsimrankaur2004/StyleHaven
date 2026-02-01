@@ -1,16 +1,58 @@
-# React + Vite
+# E-commerce Clothing Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive e-commerce clothing website built with React, featuring clean UI, cart management, and order flow.
 
-Currently, two official plugins are available:
+## Screenshots
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Home Page
+![Home Page](screenshots/homepage.png)
 
-## React Compiler
+### Product Page
+![Product Page](screenshots/productpage.png)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Cart Page
+![Cart Page](screenshots/cartpage.png)
 
-## Expanding the ESLint configuration
+### Empty Cart
+![Empty Cart](screenshots/emptycart.png)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Live Demo
+(Add your deployed link here)
+
+## Tech Stack
+- React
+- Context API (for cart state management)
+- Tailwind CSS
+- Vite
+
+## Features
+- Product listing with images and pricing
+- Add / remove products from cart
+- Quantity increment / decrement
+- Cart total price calculation
+- Order placement and cancel order flow
+- Empty cart UI state
+- Fully responsive design
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Getting Started
+
+Follow these steps to run the project locally:
+
+    ```bash
+      # Clone the repository
+      git clone <"https://github.com/Harsimrankaur2004/StyleHaven.git">
+
+      # Navigate into the project folder
+      cd ecommerce-react
+
+      # Install dependencies
+      npm install
+
+      # Start the development server
+      npm run dev
+
+

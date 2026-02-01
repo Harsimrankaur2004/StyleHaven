@@ -1,8 +1,6 @@
-# E-commerce Clothing Store
+# StyleHaven Clothing Store
 
 A responsive e-commerce clothing website built with React, featuring clean UI, cart management, and order flow.
-
-## Screenshots
 
 ## Screenshots
 

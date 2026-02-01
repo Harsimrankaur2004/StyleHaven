@@ -4,8 +4,6 @@ A responsive e-commerce clothing website built with React, featuring clean UI, c
 
 ## Screenshots
 
-
-
 ### Home Page
 <img src="screenshots/homepage.png" width="300" />
 
@@ -37,19 +35,16 @@ https://stylehaven-clothing-website.netlify.app/
 - Empty cart UI state
 - Fully responsive design
 
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Getting Started
 
 Follow these steps to run the project locally:
 
     ```bash
       # Clone the repository
-      git clone <"https://github.com/Harsimrankaur2004/StyleHaven.git">
+      git clone https://github.com/Harsimrankaur2004/StyleHaven.git
 
       # Navigate into the project folder
-      cd ecommerce-react
+      cd StyleHaven
 
       # Install dependencies
       npm install
@@ -58,3 +53,5 @@ Follow these steps to run the project locally:
       npm run dev
 
 
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

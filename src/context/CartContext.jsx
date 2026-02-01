@@ -1,103 +1,145 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 
 const CartContext = createContext();
 
-export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState(() => {
-    try {
-      return JSON.parse(localStorage.getItem("cart")) || [];
-    } catch {
-      return [];
-    }
-  });
+const initialState = {
+  cart: [],
+  orderPlace: false,
+};
 
-  const [orderPlace, setOrderPlace] = useState(() => {
-    return JSON.parse(localStorage.getItem("orderPlace")) || false;
-  });
-  const showCancelOrderBtn = orderPlace;
-  const cartEmpty = cart.length === 0;
-  const hideRemoveBtn = orderPlace;
-  const orderBtnHidden = cartEmpty || orderPlace;
-
-  useEffect(() => {
-  if (cart.length === 0) {
-    localStorage.removeItem("cart");
-  } else {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }
-
-  localStorage.setItem("orderPlace", JSON.stringify(orderPlace));
-}, [cart, orderPlace]);
-
-
-  const addToCart = (product) => {
-    if (orderPlace) return;
-    setCart((prevCart) => {
-      const existingItem = prevCart.find((item) => item.id === product.id);
-
+const cartReducer = (state, action) => {
+  switch (action.type) {
+    case "ADD_TO_CART":
+      if (state.orderPlace) return state;
+      const existingItem = state.cart.find(
+        (item) => item.id === action.payload.id,
+      );
       if (existingItem) {
-        return prevCart.map((item) =>
-          item.id === product.id
+        return {
+          ...state,
+          cart: state.cart.map((item) =>
+            item.id === action.payload.id
+              ? { ...item, quantity: item.quantity + 1 }
+              : item,
+          ),
+        };
+      }
+      return {
+        ...state,
+        cart: [...state.cart, { ...action.payload, quantity: 1 }],
+      };
+
+    case "REMOVE_ITEM":
+      if (state.orderPlace) return state;
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.id !== action.payload),
+      };
+
+    case "PLACE_ORDER":
+      if (state.cart.length === 0) return state;
+      return {
+        ...state,
+        orderPlace: true,
+      };
+
+    case "CANCEL_ORDER":
+      return {
+        cart: [],
+        orderPlace: false,
+      };
+
+    case "INCREASE_QTY":
+      if (state.orderPlace) return state;
+      return {
+        ...state,
+        cart: state.cart.map((item) =>
+          item.id === action.payload
             ? { ...item, quantity: item.quantity + 1 }
             : item,
-        );
-      }
-      return [...prevCart, { ...product, quantity: 1 }];
-    });
-  };
+        ),
+      };
+
+    case "DECREASE_QTY":
+      if (state.orderPlace) return state;
+      return {
+        ...state,
+        cart: state.cart
+          .map((item) =>
+            item.id === action.payload
+              ? { ...item, quantity: item.quantity - 1 }
+              : item,
+          )
+          .filter((item) => item.quantity !== 0),
+      };
+
+    default:
+      return state;
+  }
+};
+
+export const CartProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(cartReducer, initialState, () => {
+    // INIT FROM LOCAL STORAGE
+    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const storedOrder = JSON.parse(localStorage.getItem("orderPlace")) || false;
+
+    return {
+      cart: storedCart,
+      orderPlace: storedCart.length ? storedOrder : false,
+    };
+  });
+
+  const showCancelOrderBtn = state.orderPlace;
+  const cartEmpty = state.cart.length === 0;
+  const hideRemoveBtn = state.orderPlace;
+  const orderBtnHidden = cartEmpty || state.orderPlace;
+
+  useEffect(() => {
+    if (state.cart.length === 0) {
+      localStorage.removeItem("cart");
+    } else {
+      localStorage.setItem("cart", JSON.stringify(state.cart));
+    }
+  }, [state.cart]);
+
+  useEffect(() => {
+    localStorage.setItem("orderPlace", JSON.stringify(state.orderPlace));
+  }, [state.orderPlace]);
+
+  const addToCart = (product) =>
+    dispatch({ type: "ADD_TO_CART", payload: product });
 
   const itemQuantity = (id) => {
-    const item = cart.find((item) => item.id === id);
+    const item = state.cart.find((item) => item.id === id);
     return item ? item.quantity : 0;
   };
 
-  const cartQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+  const cartQuantity = state.cart.reduce(
+    (total, item) => total + item.quantity,
+    0,
+  );
 
-  const increaseQty = (id) => {
-    if (orderPlace) return;
-    setCart((cart) =>
-      cart.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
-      ),
-    );
-  };
+  const increaseQty = (id) => dispatch({ type: "INCREASE_QTY", payload: id });
 
-  const decreaseQty = (id) => {
-    if (orderPlace) return;
-    setCart((cart) =>
-      cart.map((item) =>
-        item.id === id && item.quantity > 1
-          ? { ...item, quantity: item.quantity - 1 }
-          : item,
-      ),
-    );
-  };
+  const decreaseQty = (id) => dispatch({ type: "DECREASE_QTY", payload: id });
 
-  const removeItem = (id) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
-  };
+  const removeItem = (id) => dispatch({ type: "REMOVE_ITEM", payload: id });
 
   const totalPrice = () => {
-    return cart.reduce(
+    return state.cart.reduce(
       (total, item) => total + item.newPrice * item.quantity,
       0,
     );
   };
 
-  const orderPlaceButton = () => {
-    if (cartEmpty) return;
-    setOrderPlace(true);
-  };
-
-  const cancelOrderBtn = () => {
-    setOrderPlace(false);
-    setCart([]);
-  };
+  const orderPlaceButton = () => dispatch({ type: "PLACE_ORDER" });
+  const cancelOrderBtn = () => dispatch({ type: "CANCEL_ORDER" });
 
   return (
     <CartContext.Provider
       value={{
-        cart,
+        cart: state.cart,
         addToCart,
         cartQuantity,
         itemQuantity,
@@ -108,7 +150,7 @@ export const CartProvider = ({ children }) => {
         cartEmpty,
         hideRemoveBtn,
         orderPlaceButton,
-        orderPlace,
+        orderPlace: state.orderPlace,
         orderBtnHidden,
         showCancelOrderBtn,
         cancelOrderBtn,

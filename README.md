@@ -4,17 +4,12 @@ A responsive e-commerce clothing website built with React, featuring clean UI, c
 
 ## Screenshots
 
-### Home Page
-![Home Page](screenshots/homepage.png)
+## Screenshots
 
-### Product Page
-![Product Page](screenshots/productpage.png)
-
-### Cart Page
-![Cart Page](screenshots/cartpage.png)
-
-### Empty Cart
-![Empty Cart](screenshots/emptycart.png)
+<img src="screenshots/homepage.png" width="300" />
+<img src="screenshots/productpage.png" width="300" />
+<img src="screenshots/cartpage.png" width="300" />
+<img src="screenshots/emptycart.png" width="300" />
 
 
 ## Live Demo

@@ -4,14 +4,23 @@ A responsive e-commerce clothing website built with React, featuring clean UI, c
 
 ## Screenshots
 
+
+
+### Home Page
 <img src="screenshots/homepage.png" width="300" />
+
+### Product Page
 <img src="screenshots/productpage.png" width="300" />
+
+### Cart Page
 <img src="screenshots/cartpage.png" width="300" />
+
+### Empty Cart
 <img src="screenshots/emptycart.png" width="300" />
 
 
 ## Live Demo
-(Add your deployed link here)
+https://stylehaven-clothing-website.netlify.app/
 
 ## Tech Stack
 - React

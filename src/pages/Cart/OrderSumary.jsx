@@ -1,5 +1,5 @@
 import CancleOrderButton from "./CancelOrderButton";
-import { useCart } from "../../context/CartContext";
+import { useCart } from "../../context/useCart";
 
 const OrderSumary = () => {
   const {

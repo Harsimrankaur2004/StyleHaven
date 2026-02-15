@@ -11,28 +11,31 @@ import Card from "./Card";
 import productsData from "../../db/data";
 
 const ProductsPage = () => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const [selectedCategory, setSelectedCategory] = useState(
+    searchParams.get("search") || "",
+  );
+
+  
   const navigate = useNavigate();
 
-  const [searchParams] = useSearchParams();
-  const searchFromURL = searchParams.get("search");
-
   useEffect(() => {
-    searchFromURL ? setSelectedCategory(searchFromURL) : "";
-  }, [searchFromURL]);
+    if (selectedCategory) {
+      setSearchParams({ search: selectedCategory });
+    } else {
+      setSearchParams({});
+    }
+  }, [selectedCategory, setSearchParams]);
 
   const handleChange = (e) => {
     const value = e.target.value;
-    setSelectedCategory(value);
     navigate(`/products?search=${encodeURIComponent(value)}`);
   };
 
   const handleClick = (e) => {
     const range = e.target.value;
-
-    if (range === "50" || "100" || "150" || "200" || "250") {
-      setSelectedCategory(range);
-    }
+    setSelectedCategory(range);
   };
 
   function filteredData(products, selected) {

@@ -38,7 +38,7 @@ const SearchBar = ({ mobileSearchOpen, setMobileSearchOpen }) => {
     return () => {
       media.removeEventListener("change", handler);
     };
-  }, []);
+  }, [setMobileSearchOpen]);
 
   useEffect(() => {
     if (!mobileSearchOpen) return;

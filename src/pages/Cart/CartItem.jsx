@@ -1,4 +1,4 @@
-import { useCart } from "../../context/CartContext";
+import { useCart } from "../../context/useCart";
 import QuantitySelector from "./QuantitySelector";
 import RemoveItemButton from "./RemoveItemButton";
 

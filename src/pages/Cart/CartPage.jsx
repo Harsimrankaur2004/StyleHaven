@@ -2,7 +2,7 @@ import CartHeader from "./CartHeader";
 import CartItems from "./CartItems";
 import CartTitle from "./CartTitle";
 import OrderSumary from "./OrderSumary";
-import { useCart } from "../../context/CartContext";
+import { useCart } from "../../context/useCart";
 import EmptyCart from "./EmptyCart";
 
 const Cart = () => {

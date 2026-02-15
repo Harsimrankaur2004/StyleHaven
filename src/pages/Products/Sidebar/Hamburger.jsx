@@ -22,7 +22,7 @@ const Hamburger = ({ sidebarInvisible, setSidebarInvisible }) => {
     media.addEventListener("change", handler);
 
     return () => media.removeEventListener("change", handler);
-  }, []);
+  }, [setSidebarInvisible]);
 
   useEffect(() => {
     if (window.matchMedia("(min-width: 718px)").matches) return;
@@ -39,7 +39,7 @@ const Hamburger = ({ sidebarInvisible, setSidebarInvisible }) => {
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [sidebarInvisible]);
+  }, [setSidebarInvisible, sidebarInvisible]);
 
   return (
     <nav

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 // ----- Components -----
 import Header from "../../components/Header";
@@ -17,9 +17,6 @@ const ProductsPage = () => {
     searchParams.get("search") || "",
   );
 
-  
-  const navigate = useNavigate();
-
   useEffect(() => {
     if (selectedCategory) {
       setSearchParams({ search: selectedCategory });
@@ -30,7 +27,7 @@ const ProductsPage = () => {
 
   const handleChange = (e) => {
     const value = e.target.value;
-    navigate(`/products?search=${encodeURIComponent(value)}`);
+    setSelectedCategory(value);
   };
 
   const handleClick = (e) => {

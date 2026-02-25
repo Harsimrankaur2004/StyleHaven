@@ -4,7 +4,7 @@ import { Routes, Route, useLocation } from "react-router-dom"
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-// ---- components ----
+// ---- Pages ----
 import HomePage from "./pages/Home/HomePage"
 import ProductsPage from "./pages/Products/ProductsPage"
 import CartPage from "./pages/Cart/CartPage";

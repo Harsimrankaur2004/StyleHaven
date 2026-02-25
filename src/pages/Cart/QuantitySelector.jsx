@@ -1,4 +1,5 @@
 import { useCart } from "../../context/useCart";
+
 const btnStyle =
   "bg-gray-200 text-gray-600 flex-1 flex justify-center items-center cursor-pointer text-2xl font-bold";
 

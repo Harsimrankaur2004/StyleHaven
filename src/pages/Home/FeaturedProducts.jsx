@@ -1,9 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import data from "../../db/data";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import useProducts from "../../hooks/useProducts";
 
 const FeaturedProducts = () => {
+  const data = useProducts();
+
   const navigate = useNavigate();
+
   return (
     <div data-aos="fade-up" className="mt-8  p-4">
       <div className="flex justify-center items-center gap-6">

@@ -19,12 +19,12 @@ const CartItem = () => {
           <div className="ml-3 flex-1">
             <div className="font-bold sm:text-xl line-clamp-1">{item.title}</div>
             <div className="mb-2 lg:mb-5">Color: {item.color}</div>
-            <div className="xl:hidden">${item.newPrice}</div>
+            <div className="xl:hidden">Per item: ${item.newPrice}</div>
             <QuantitySelector id={item.id} />
             <RemoveItemButton id={item.id} />
           </div>
           <div className="flex-1 text-end font-bold text-xl hidden xl:block">
-            {item.newPrice}
+            Per item: ${item.newPrice}
           </div>
         </div>
       ))}

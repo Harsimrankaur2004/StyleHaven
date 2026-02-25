@@ -1,7 +1,8 @@
 import { useRef, useState } from "react";
+import { AiFillStar } from "react-icons/ai";
 import { useCart } from "../../context/useCart";
 
-const Card = ({ id, img, title, star, reviews, prevPrice, newPrice, color }) => {
+const Card = ({ id, img, title, reviews, prevPrice, newPrice, color }) => {
   const [ added, setAdded ] = useState(false)
   const { addToCart, orderPlace } = useCart();
   const timeoutRef = useRef(null);;
@@ -29,11 +30,12 @@ const Card = ({ id, img, title, star, reviews, prevPrice, newPrice, color }) => 
       <div>
         <div className="truncate max-[400px]:w-30 w-35  ">{title}</div>
         <div className="flex text-yellow-400">
-          {star}
-          {star}
-          {star}
-          {star}
-          {star}
+          <AiFillStar className="rating-star" />
+          <AiFillStar className="rating-star" />
+          <AiFillStar className="rating-star" />
+          <AiFillStar className="rating-star" />
+          <AiFillStar className="rating-star" />
+          
         </div>
         <div>{reviews}</div>
 

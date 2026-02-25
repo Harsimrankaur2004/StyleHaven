@@ -1,10 +1,13 @@
+// ---- external libraries ----
+import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom"
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+// ---- components ----
 import HomePage from "./pages/Home/HomePage"
 import ProductsPage from "./pages/Products/ProductsPage"
 import CartPage from "./pages/Cart/CartPage";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
 
 const App = () => {
   const location = useLocation();

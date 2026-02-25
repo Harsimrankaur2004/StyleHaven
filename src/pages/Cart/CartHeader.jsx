@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import Logo from "../../components/Logo";
 import { FaShirt } from "react-icons/fa6";
+import Logo from "../../components/Logo";
 
 const CartHeader = () => {
   const navigate = useNavigate();

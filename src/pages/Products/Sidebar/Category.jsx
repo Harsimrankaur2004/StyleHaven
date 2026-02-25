@@ -1,5 +1,5 @@
-import Input from "../../../components/Input";
 import { IoIosCheckmarkCircle } from "react-icons/io";
+import Input from "../../../components/Input";
 
 const Category = ({ handleChange }) => {
   return (

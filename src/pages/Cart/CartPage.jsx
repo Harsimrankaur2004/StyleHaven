@@ -2,8 +2,8 @@ import CartHeader from "./CartHeader";
 import CartItems from "./CartItems";
 import CartTitle from "./CartTitle";
 import OrderSumary from "./OrderSumary";
-import { useCart } from "../../context/useCart";
 import EmptyCart from "./EmptyCart";
+import { useCart } from "../../context/useCart";
 
 const Cart = () => {
   const { cartEmpty } = useCart();

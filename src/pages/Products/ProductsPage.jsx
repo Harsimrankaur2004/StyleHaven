@@ -8,9 +8,10 @@ import SideBar from "./Sidebar/SideBar";
 import Card from "./Card";
 
 // ----- Data -----
-import productsData from "../../db/data";
+import useProducts from "../../hooks/useProducts";
 
 const ProductsPage = () => {
+  const productsData = useProducts();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [selectedCategory, setSelectedCategory] = useState(
@@ -53,13 +54,12 @@ const ProductsPage = () => {
     }
 
     return filteredProducts.map(
-      ({ id, img, title, star, reviews, prevPrice, newPrice, color }) => (
+      ({ id, img, title, reviews, prevPrice, newPrice, color }) => (
         <Card
           key={id}
           id={id}
           img={img}
           title={title}
-          star={star}
           reviews={reviews}
           prevPrice={prevPrice}
           newPrice={newPrice}

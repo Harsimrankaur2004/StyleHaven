@@ -8,9 +8,9 @@ const CartCount = () => {
   return (
     <div
       onClick={() => navigate("/cart")}
-      className="relative flex items-center cursor-pointer "
+      className="relative flex items-center cursor-pointer hover:scale-110 duration-100"
     >
-      <nav className="hover:text-gray-500">
+      <nav>
         <FaCartShopping fontSize={30} />
       </nav>
       <div className="absolute h-5 w-5 flex justify-center items-center top-2 -right-1 rounded-full text-white bg-red-600">

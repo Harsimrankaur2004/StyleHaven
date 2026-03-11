@@ -1,18 +1,21 @@
 import FeaturedProducts from "./FeaturedProducts";
 import Header from "../../components/Header";
 import Hero from "./Hero";
-import PromoSplitSection from "./PromoSplitSection/PromoSplitSection";
+import PromoSplitSection from "./PromoSplitSection";
 import Footer from "./Footer";
 
 const HomePage = () => {
   return (
-    <div className="max-w-400 m-auto">
+    <>
       <Header />
-      <Hero />
-      <FeaturedProducts />
-      <PromoSplitSection />
+
+      <main className="max-w-400 mx-auto pt-4">
+        <Hero />
+        <FeaturedProducts />
+        <PromoSplitSection />
+      </main>
       <Footer />
-    </div>
+    </>
   );
 };
 

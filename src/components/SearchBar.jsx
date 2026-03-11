@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const SearchBar = ({ mobileSearchOpen, setMobileSearchOpen }) => {
   const navigate = useNavigate();
 
-  const [inputValue, setInputValue] = useState("");
+   const [inputValue, setInputValue] = useState("");
 
   const handleSearch = () => {
     const isDisplay = window.matchMedia("(min-width: 768px)").matches;
@@ -60,8 +60,8 @@ const SearchBar = ({ mobileSearchOpen, setMobileSearchOpen }) => {
     <div className="flex gap-3">
       <div
         className={`${
-          mobileSearchOpen ? "w-full border-2 border-gray-300" : ""
-        } md:border-2 md:shadow-lg md:w-100 rounded-4xl flex justify-between px-4  border-gray-300 `}
+          mobileSearchOpen ? "w-full sm:w-100 shadow-[0_0_8px_rgba(0,0,0,0.6)] " : ""
+        }  md:w-100  rounded-4xl flex justify-between px-4 md:shadow-[0_0_8px_rgba(0,0,0,0.6)]`} 
       >
         <input
           onChange={(e) => setInputValue(e.target.value)}

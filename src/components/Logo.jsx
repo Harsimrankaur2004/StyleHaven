@@ -7,7 +7,7 @@ const Logo = ({mobileSearchOpen}) => {
       onClick={() => navigate("/")}
       className={`logo text-5xl ${
         mobileSearchOpen ? "hidden" : "block"
-      } md:block cursor-pointer`}
+      } md:block cursor-pointer hover:scale-110 duration-100`}
     >
       StyleHaven
     </h1>

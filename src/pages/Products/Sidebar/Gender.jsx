@@ -3,7 +3,7 @@ import Input from "../../../components/Input";
 
 const Gender = ({ handleChange }) => {
   return (
-    <div className="pt-4">
+    <div className="pt-4 text-white">
       <h1 className="font-bold">Gender</h1>
       <label className="relative flex items-center gap-2 px-2 py-0.5 cursor-pointer group">
         <input
@@ -15,7 +15,7 @@ const Gender = ({ handleChange }) => {
         />
         <span
           className="w-5 h-5
-            rounded-full bg-white group-hover:border-amber-400 border peer-checked:border-0 peer-checked:bg-transparent 
+            rounded-full bg-[#364066] group-hover:border-amber-400 group-hover:border peer-checked:border-0 peer-checked:bg-transparent 
             peer-checked:[&_svg]:scale-100
       "
         >

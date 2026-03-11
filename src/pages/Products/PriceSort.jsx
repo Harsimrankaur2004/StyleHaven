@@ -3,7 +3,7 @@ import Option from "../../components/Option";
 const PriceSort = ({ handleClick }) => {
   return (
     <div className="flex justify-end items-center mr-5">
-      <div className="rounded text-center shadow bg-gray-400 text-white p-1">
+      <div className="rounded text-center shadow bg-[#1b212b] text-white p-1">
         <h2 className="font-bold sm:inline  hidden border-gray-600 border-r px-2">
           PRICE:
         </h2>

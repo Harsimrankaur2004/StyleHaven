@@ -19,10 +19,10 @@ const Card = ({ id, img, title, reviews, prevPrice, newPrice, color }) => {
   }
 
   return (
-    <div id={id} className="flex-1 basis-35 max-[400px]:w-30 md:basis-40 border border-gray-300 p-4 rounded sm:grow-0 items-center max-w-50 sm:max-w-60 flex flex-col">
-      <div className="max-[400x]:w-25 max-[400px]:h-35 w-35 h-30 sm:max-w-45 rounded-2xl">
+    <div id={id} className="flex-1 basis-35 max-[400px]:w-30 md:basis-40 shadow-xl hover:scale-105 transition duration-150 p-4 rounded sm:grow-0 items-center max-w-50 sm:max-w-60 flex flex-col group">
+      <div className="max-[400x]:w-25 max-[400px]:h-35 w-35 h-30 sm:max-w-45 rounded-2xl overflow-hidden">
         <img
-          className="w-full h-full object-contain"
+          className="w-full h-full object-contain group-hover:scale-110 duration-150 transition"
           src={img}
           alt="product-image"
         />
@@ -44,7 +44,7 @@ const Card = ({ id, img, title, reviews, prevPrice, newPrice, color }) => {
         </del>
         <span className="font-bold sm:font-bold ml-2">${newPrice}</span>
       </div>
-      <button onClick={handleClick} className="bg-[#1f1f1f] text-white px-8 rounded-4xl py-2 mt-2 cursor-pointer hover:opacity-55 active:opacity-40">
+      <button onClick={handleClick} className={` text-white w-full rounded-4xl py-2 mt-2 cursor-pointer  ${added ? "bg-green-600" : "bg-[#1f1f1f] hover:opacity-55 active:opacity-40"} `}>
        {added ? "Added" : "Add" }
       </button>
     </div>

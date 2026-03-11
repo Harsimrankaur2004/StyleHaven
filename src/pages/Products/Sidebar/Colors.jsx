@@ -3,7 +3,7 @@ import RadioColor from "../../../components/RadioColor";
 
 const Colors = ({ handleChange }) => {
   return (
-    <div className="border-b border-gray-300 py-4">
+    <div className="border-b border-gray-300 py-4 text-white">
       <div className="flex justify-evenly pb-3">
         <h1 className="font-bold">Colors</h1>
         <label className="relative flex gap-2 px-2 py-0.5 cursor-pointer group  ">
@@ -16,7 +16,7 @@ const Colors = ({ handleChange }) => {
           />
           <span
             className="w-5 h-5
-            rounded-full bg-white group-hover:border-amber-400 border peer-checked:border-0 peer-checked:bg-transparent 
+            rounded-full bg-[#364066] group-hover:border-amber-400 group-hover:border peer-checked:border-0 peer-checked:bg-transparent 
             peer-checked:[&_svg]:scale-100
       "
           >
@@ -36,11 +36,6 @@ const Colors = ({ handleChange }) => {
           handleChange={handleChange}
         />
         <RadioColor
-          value={"red"}
-          color={"bg-red-500"}
-          handleChange={handleChange}
-        />
-        <RadioColor
           value={"brown"}
           color={"bg-red-700"}
           handleChange={handleChange}
@@ -48,11 +43,17 @@ const Colors = ({ handleChange }) => {
         <RadioColor
           value={"black"}
           color={"bg-black"}
+          border={"border border-white"}
           handleChange={handleChange}
         />
         <RadioColor
           value={"green"}
           color={"bg-green-400"}
+          handleChange={handleChange}
+        />
+        <RadioColor
+          value={"red"}
+          color={"bg-red-600"}
           handleChange={handleChange}
         />
         <RadioColor
